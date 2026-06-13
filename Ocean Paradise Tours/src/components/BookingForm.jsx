@@ -53,7 +53,6 @@ export default function BookingForm({ tours, selectedTourId = '' }) {
   async function handleSubmit(event) {
     event.preventDefault()
     setStatus({ loading: true, message: '', error: '' })
-    const whatsappWindow = window.open('', '_blank', 'noopener,noreferrer')
 
     const selectedTour = options.find((item) => String(item.id) === String(form.tour_id))
 
@@ -69,11 +68,7 @@ export default function BookingForm({ tours, selectedTourId = '' }) {
         if (whatsappPhone) {
           const whatsappMessage = buildWhatsAppMessage(form, selectedTour?.title ?? '')
           const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappMessage)}`
-          if (whatsappWindow) {
-            whatsappWindow.location.href = whatsappUrl
-          } else {
-            window.location.href = whatsappUrl
-          }
+          window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
         }
       }
 
