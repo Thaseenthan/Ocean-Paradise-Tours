@@ -143,7 +143,7 @@ export default function BookingForm({ tours, selectedTourId = '' }) {
       </label>
 
       <div className="sm:col-span-2">
-        <button disabled={status.loading} className="btn-primary w-full" type="submit">
+        <button disabled={status.loading} className="btn-whatsapp w-full" type="submit">
           {status.loading ? 'Submitting...' : 'Book Via WhatsApp'}
         </button>
       </div>
